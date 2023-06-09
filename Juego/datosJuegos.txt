@@ -1,0 +1,103 @@
+-- filas: Una variable que almacena una lista de elementos HTML que representan las filas del tablero de ajedrez. 
+Estos elementos se seleccionan utilizando el método document.querySelectorAll y se identifican por su clase CSS. (Actualmente
+no existe css para las filas)
+
+-- celdas: Una variable que almacena una lista de elementos HTML que representan las celdas del tablero de ajedrez. 
+Estos elementos se seleccionan utilizando el método document.querySelectorAll.
+
+-- celdasArray: Una variable que almacena un array que contiene las celdas del tablero de ajedrez. 
+Se crea utilizando el método Array.from para convertir la lista de elementos HTML en un array.
+
+-- ultimaCeldaSel: Una variable que almacena la referencia a la última celda seleccionada. 
+Se inicializa como null y se actualiza cuando se selecciona una nueva celda.
+
+-- agregarClickCelda(): Una función que agrega un evento de clic a cada celda del tablero. 
+Utiliza el método forEach para recorrer el array celdasArray y añade un escuchador de eventos a cada celda.
+
+-- resaltarCelda(imagen, celda): Una función que resalta una celda al hacer clic en una imagen. 
+Cambia el color de fondo de la celda seleccionada a un tono naranja (#e45209). 
+Si ya había una celda seleccionada previamente, se restablece su color de fondo. 
+Esta función también llama a la función mostrarMovimientosPosibles(imagen, celda) para mostrar los movimientos posibles de la pieza.
+
+-- mostrarMovimientosPeon(imagen, celda): Una función que muestra los movimientos posibles para un peón. 
+Obtiene la posición actual de la celda, determina la dirección de movimiento según el color de la pieza 
+y añade las posiciones posibles al array posiblesPosiciones. Luego llama a las funciones eliminarCirculos() 
+y mostrarCirculosPosibles(posiblesPosiciones) para mostrar visualmente los movimientos posibles.
+
+-- mostrarMovimientosCaballo(imagen, celda): Una función que muestra los movimientos posibles para un caballo. 
+Obtiene la posición actual de la celda y calcula las posibles posiciones utilizando un array de desplazamientos predefinidos. 
+Verifica si cada posición es válida y existe en el array celdasArray, y las agrega al array posiblesPosiciones. 
+Luego llama a las funciones eliminarCirculos() y mostrarCirculosPosibles(posiblesPosiciones) 
+para mostrar visualmente los movimientos posibles.
+
+-- mostrarMovimientosAlfil(imagen, celda): Una función que muestra los movimientos posibles para un alfil. 
+Utiliza un array de desplazamientos predefinidos para calcular las posibles posiciones del alfil en dirección diagonal. 
+Itera sobre los desplazamientos, actualiza la posición y verifica si está dentro del tablero y si hay piezas en el camino. 
+Agrega las posiciones válidas al array posiblesMovimientos y llama a las funciones eliminarCirculos() y 
+mostrarCirculosPosibles(posiblesMovimientos) para mostrar visualmente los movimientos posibles. Retorna el array 
+
+-- mostrarMovimientosTorre(imagen, celda): Una función que muestra los movimientos posibles para una torre. 
+Utiliza un array de desplazamientos predefinidos para calcular las posibles posiciones de la torre en dirección vertical u horizontal. 
+Itera sobre los desplazamientos, actualiza la posición y verifica si está dentro del tablero y si hay piezas en el camino. 
+Agrega las posiciones válidas al array posiblesMovimientos y llama a las funciones eliminarCirculos() 
+y mostrarCirculosPosibles(posiblesMovimientos) para mostrar visualmente los movimientos posibles. Retorna el array posiblesMovimientos.
+
+-- mostrarMovimientosReina(imagen, celda): Una función que muestra los movimientos posibles para una reina. 
+Utiliza las funciones mostrarMovimientosAlfil(imagen, celda) y mostrarMovimientosTorre(imagen, celda) 
+para obtener los movimientos posibles del alfil y la torre respectivamente. Combina los arrays de movimientos obtenidos 
+y llama a las funciones eliminarCirculos() y mostrarCirculosPosibles(posiblesMovimientos) para mostrar visualmente los movimientos posibles. 
+Retorna el array posiblesMovimientos.
+
+-- eliminarCirculos(): Una función que elimina todos los elementos HTML con la clase CSS "circulo". 
+Utiliza el método document.querySelectorAll para seleccionar todos los elementos con dicha clase y luego utiliza el método remove() 
+para eliminarlos del documento.
+
+-- mostrarCirculosPosibles(posiblesPosiciones): Una función que muestra círculos en las celdas correspondientes a las posiciones pasadas 
+como argumento. Recorre todas las celdas del tablero y, si la posición de una celda está en el array posiblesPosiciones
+ y no contiene un elemento hijo, crea un elemento HTML <td> con la clase CSS "circulo" y lo agrega como hijo de la celda.
+
+ -----------------------------------------------------------------------------------------------------------------------------------
+
+ Métodos y propiedades usadas en juego.js:
+
+**Métodos:**
+
+-- document.querySelectorAll() : Retorna una lista de todos los elementos en el documento que coinciden con un selector CSS especificado.
+
+-- Array.from() : Crea una nueva instancia de Array a partir de un objeto iterable (por ejemplo un NodeList, una cadena, un Set, etc.)
+
+-- forEach() : Ejecuta una función proporcionada una vez por cada elemento en una matriz.
+
+-- addEventListener() : Agrega un "escucha" al evento especificado al elemento en el que se llama.
+
+-- closest() : Devuelve el ascendente más cercano del elemento actual (o el propio elemento actual) que coincide con el selector dado o null si no se encuentra ninguno.
+
+-- createElement() : Crea un nuevo elemento HTML especificado por su tagName.
+
+-- appendChild() : Agrega un nuevo nodo hijo al final de la lista de hijos de un nodo padre especificado.
+
+-- remove() : Elimina el elemento del DOM en el que se llama.
+
+-- push() :  es un método de los objetos de tipo Array en JavaScript. 
+Este método se utiliza para agregar uno o varios elementos al final de un array y devuelve la nueva longitud del array actualizado.
+
+
+**Propiedades:**
+
+-- innerHTML :  Es una propiedad de los elementos HTML que devuelve o establece el contenido HTML que se encuentra dentro del elemento. 
+Por ejemplo, se puede utilizar para modificar el contenido de un elemento de una página web.
+
+-- classList :  Es una propiedad de los elementos HTML que devuelve una lista de clases del elemento.
+ Se utiliza para agregar, eliminar o verificar la presencia de clases en un elemento.
+
+-- style :  Es una propiedad de los elementos HTML que devuelve o establece el atributo de estilo CSS del elemento. 
+Se utiliza para modificar el estilo de un elemento, como su tamaño, color, fuente, etc.
+
+-- src : Es una propiedad de los elementos HTML que devuelve o establece la URL de la fuente de un elemento, como una imagen, un video o un audio.
+
+-- id : Es una propiedad de los elementos HTML que devuelve o establece el identificador único del elemento. 
+Se utiliza para acceder a un elemento específico en el DOM y para aplicar estilos y comportamientos específicos a ese elemento.
+
+-- target :Es una propiedad de los elementos HTML que devuelve o establece el destino de un enlace o un formulario.
+ Por ejemplo, se puede establecer una ventana emergente como destino de un enlace o un formulario para enviar los datos a otra página
+ o a una dirección de correo electrónico.

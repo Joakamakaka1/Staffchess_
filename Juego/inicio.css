@@ -1,0 +1,108 @@
+body {
+    background-image: url('img/fondo.png'), linear-gradient(to left, #deb974, #d8aa6d, #a9581e);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50rem;
+    margin-top: 15rem;
+}
+
+.titulo {
+    background: linear-gradient(to right, #ac5004, #974b05, #724b2f);
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.com {
+    font-size: 0.3em;
+}
+
+.descripcion {
+    text-align: center;
+    font-size: 1em;
+}
+
+.botones {
+    margin-top: 30px;
+    display: flex;
+}
+
+.boton {
+    padding: 10px 20px;
+    border: none;
+    background-color: #cda168;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.boton:hover {
+    background-color: #8B4513;
+}
+
+a {
+    text-decoration: none;
+    color: #fff
+}
+
+.contenedor_formulario {
+    display: none;
+    position: absolute;
+    margin-left: 55%;
+    margin-top: -5%;
+    background-color: #fff;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 590px;
+    height: 550px;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+}
+
+.titulo2 {
+    font-size: 20px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.contenido form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.campo label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.campo input {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+}

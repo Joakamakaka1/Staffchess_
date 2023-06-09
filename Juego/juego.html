@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ajedrez</title>
+        <link rel="shortcut icon" href="img/reina.png">
+        <link rel="stylesheet" href="juego.css">
+</head>
+
+<!-- Se ha establecido un ID por cada celda para posteriormente realizar la programación del juego en js-->
+<!-- La clase filas no tiene css, se ha puesto por si hiciera falta en js-->
+<!--transform: perspective(500px) rotateX(20deg);-->
+
+<body>
+        <div class="menu" onclick="abrir()">
+                <div class="barra_menu">
+                        <img src="img/menu.png" alt="menu">
+                        <h1>StaffChess</h1>
+                </div>
+                <div class="cajas" id="visualizar">
+                        <div class="caja" onclick="guia()">
+                                <img src="img/peon-de-ajedrez.png" alt="peon-de-ajedrez">
+                                <p>Movimientos del Peon</p>
+                        </div>
+                        <div class="caja" onclick="guia()">
+                                <img src="img/torre.png" alt="torre">
+                                <p>Movimientos de la Torre</p>
+                        </div>
+                        <div class="caja" onclick="guia()">
+                                <img src="img/caballero.png" alt="caballo">
+                                <p>Movimientos del Caballo</p>
+                        </div>
+                        <div class="caja" onclick="guia()">
+                                <img src="img/obispo.png" alt="obispo">
+                                <p>Movimientos del Alfil</p>
+                        </div>
+                        <div class="caja" onclick="guia()">
+                                <img src="img/reina.png" alt="reina">
+                                <p>Movimientos de la Reina</p>
+                        </div>
+                        <div class="caja" onclick="guia()">
+                                <img src="img/rey.png" alt="rey">
+                                <p>Movimientos del Rey</p>
+                        </div>
+                </div>
+        </div>
+
+        <div class="cajaJugador1">
+                <div class="fotoJugador">
+                        <img src="img/hombre.png" alt="hombre">
+                </div>
+                <div class="jugador">
+                        <p>Jugador 1</p>
+                </div>
+        </div>
+
+        <div class="caja_tiempo1">
+                <p id="countdown1" class="tiempo">5:00</p>
+                <img src="img/reloj-de-arena.png" alt="reloj-de-arena">
+        </div>
+
+        <table class="tablero">
+                <tr class="fila1">
+                        <td class="celda marron" id="a1"><img src="imgPiezas/bR.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="b1"><img src="imgPiezas/bN.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="c1"><img src="imgPiezas/bB.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="d1"><img src="imgPiezas/bQ.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="e1"><img src="imgPiezas/bK.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="f1"><img src="imgPiezas/bB.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="g1"><img src="imgPiezas/bN.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="h1"><img src="imgPiezas/bR.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                </tr>
+                <tr class="fila2">
+                        <td class="celda blanco" id="a2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="b2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="c2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="d2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="e2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="f2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="g2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="h2"><img src="imgPiezas/bP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                </tr>
+
+                <tr class="fila3">
+                        <td class="celda marron" id="a3"></td>
+                        <td class="celda blanco" id="b3"></td>
+                        <td class="celda marron" id="c3"></td>
+                        <td class="celda blanco" id="d3"></td>
+                        <td class="celda marron" id="e3"></td>
+                        <td class="celda blanco" id="f3"></td>
+                        <td class="celda marron" id="g3"></td>
+                        <td class="celda blanco" id="h3"></td>
+                </tr>
+                <tr class="fila4">
+                        <td class="celda blanco" id="a4"></td>
+                        <td class="celda marron" id="b4"></td>
+                        <td class="celda blanco" id="c4"></td>
+                        <td class="celda marron" id="d4"></td>
+                        <td class="celda blanco" id="e4"></td>
+                        <td class="celda marron" id="f4"></td>
+                        <td class="celda blanco" id="g4"></td>
+                        <td class="celda marron" id="h4"></td>
+                </tr>
+                <tr class="fila5">
+                        <td class="celda marron" id="a5"></td>
+                        <td class="celda blanco" id="b5"></td>
+                        <td class="celda marron" id="c5"></td>
+                        <td class="celda blanco" id="d5"></td>
+                        <td class="celda marron" id="e5"></td>
+                        <td class="celda blanco" id="f5"></td>
+                        <td class="celda marron" id="g5"></td>
+                        <td class="celda blanco" id="h5"></td>
+                </tr>
+                <tr class="fila6">
+                        <td class="celda blanco" id="a6"></td>
+                        <td class="celda marron" id="b6"></td>
+                        <td class="celda blanco" id="c6"></td>
+                        <td class="celda marron" id="d6"></td>
+                        <td class="celda blanco" id="e6"></td>
+                        <td class="celda marron" id="f6"></td>
+                        <td class="celda blanco" id="g6"></td>
+                        <td class="celda marron" id="h6"></td>
+                </tr>
+                <tr class="fila8">
+                        <td class="celda marron" id="a7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="b7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="c7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="d7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="e7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="f7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="g7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="h7"><img src="imgPiezas/wP.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                </tr>
+                <tr class="fila9">
+                        <td class="celda blanco" id="a8"><img src="imgPiezas/wR.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="b8"><img src="imgPiezas/wN.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="c8"><img src="imgPiezas/wB.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="d8"><img src="imgPiezas/wK.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="e8"><img src="imgPiezas/wQ.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="f8"><img src="imgPiezas/wB.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda blanco" id="g8"><img src="imgPiezas/wN.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                        <td class="celda marron" id="h8"><img src="imgPiezas/wR.png" class="pieza" draggable="true"
+                                        ondragstart="dragstart(event)"></td>
+                </tr>
+        </table>
+
+        <audio id="sonido" src="sonido/chess-_[cut_0sec].mp3" ondrop="audio()"></audio>
+
+        <div class="cajaJugador2">
+                <div class="fotoJugador">
+                        <img src="img/hombre2.png" alt="hombre2">
+                </div>
+                <div class="jugador">
+                        <p>Jugador 2</p>
+                </div>
+        </div>
+
+        <div class="caja_tiempo2">
+                <p id="countdown2" class="tiempo">5:00</p>
+                <img src="img/reloj-de-arena.png" alt="reloj-de-arena">
+        </div>
+
+        <div class="chat">
+                <div class="caja_img">
+                        <img src="img/hombre2.png" alt="hombre">
+                        <img src="img/contra.png" alt="contra">
+                        <img src="img/hombre.png" alt="hombre">
+                </div>
+                <div class="caja_chat">
+                        <div class="contenido">
+                                <h1>Movimientos</h1>
+                                <p id="titulo">Posicion inicial</p>
+                                <p id="movimientos"></p>
+                        </div>
+                </div>
+                <div class="espacio_inf">
+                        <p>StaffChess</p>
+                        <div class="imagenes">
+                                <img src="img/facebook.png" alt="facebook">
+                                <img src="img/gmail.png" alt="gmail">
+                                <img src="img/instagram.png" alt="instagram">
+                        </div>
+                </div>
+        </div>
+
+        <div id="mensaje_victoria" class="mensaje_victoria">
+                <h1>¡Victoria!</h1>
+                <p id="ganador" class="ganador"></p>
+                <img src="img/hombre.png" alt="" id="imagen1">
+                <img src="img/hombre2.png" alt="" id="imagen2">
+        </div>
+
+        <div id="guia_piezas" class="guia_piezas">
+                <div class="boton" id="botonCerrar">
+                        <img src="img/cancelar.png" alt="">
+                </div>
+                <h1 id="pieza"></h1>
+                <img src="" alt="" id="imagen">
+                <p id="explicacion" class="pieza_"></p>
+                <div class="imagenesMov">
+                        <img src="" alt="" id="imagenMovimiento">
+                </div>
+        </div>
+
+        <script src="juego.js"></script>
+</body>
+
+</html>

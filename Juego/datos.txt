@@ -1,0 +1,21 @@
+Constantes (const): 
+
+Se han utilizado para declarar variables que no van a cambiar de valor a lo largo del programa. 
+En este caso, se han utilizado para declarar las variables que representan las filas y celdas del tablero, las imágenes y celdas seleccionadas. 
+También se usarán para los futuros movimientos de las piezas.
+
+Variables (let): 
+
+Se han utilizado para declarar variables que pueden cambiar de valor a lo largo del programa. 
+En este caso, se ha utilizado una variable para guardar la última celda seleccionada por el usuario,
+al igual que se ha utilizado para guardar la última imagen seleccionada por el usuario.
+
+Funciones (function): 
+
+Se han utilizado para declarar funciones que realizan una tarea específica, 
+como agregar un evento de clic a cada celda del tablero, mostrar los movimientos posibles de un peón, 
+o eliminar los círculos y el color verde al hacer clic fuera del tablero. 
+    
+    **Las funciones se utilizan para modularizar el código y hacerlo más fácil de leer y mantener.**
+
+-------------------------------------------------------------------------------------------------------------------------------

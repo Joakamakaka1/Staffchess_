@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Lato&family=Merriweather:ital,wght@1,900&display=swap');
+
+body {
+    background: #312E2B;
+    font-family: 'Cherry Bomb One', cursive;
+    font-family: 'Lato', sans-serif;
+    font-family: 'Merriweather', serif;
+    overflow-x: hidden;
+}
+
+.tablero {
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 5.5%;
+    border: 1px solid #000000;
+}
+
+td {
+    width: 88px;
+    height: 88px;
+    text-align: center;
+}
+
+.blanco {
+    background-color: #f2d8b3;
+}
+
+.marron {
+    background-color: #80461b;
+}
+
+.tablero img {
+    height: 50px;
+    width: auto;
+}
+
+.tablero img:hover {
+    box-shadow: 0px 0px 10px 5px #e45209;
+    border-radius: 60%;
+}
+
+.circulo {
+    display: inline-block;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    background-color: rgb(145, 133, 133);
+}
+
+.pieza {
+    cursor: move;
+}
+
+.menu {
+    position: absolute;
+    margin-top: -92px;
+}
+
+.menu img {
+    width: 50px;
+}
+
+.menu h1 {
+    color: #f2d8b3;
+    margin-left: 20px;
+}
+
+.barra_menu {
+    display: flex;
+    align-items: center;
+}
+
+.cajas {
+    display: none;
+    position: absolute;
+    background-color: #272522;
+    width: 240px;
+    height: 600px;
+    margin-top: 40px;
+    text-align: center;
+    animation: wipe-in-right 0.5s;
+}
+
+.caja {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+.caja img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.caja p {
+    color: #f2d8b3;
+}
+
+.caja:hover {
+    background-color: #21201d;
+}
+
+.cajaJugador1 {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: 31%;
+    margin-top: -5.3em;
+}
+
+.cajaJugador2 {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: 31%;
+    margin-top: 1.3em;
+}
+
+.fotoJugador img {
+    width: 70px;
+    height: 70px;
+    margin-right: 20px;
+}
+
+.jugador p {
+    color: #f2d8b3;
+}
+
+.caja_tiempo1 {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: 58%;
+    margin-top: -5em;
+}
+
+.caja_tiempo2 {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    margin-left: 58%;
+    margin-top: 1.3em;
+}
+
+.tiempo {
+    margin-top: -2px;
+    font-size: 40px;
+}
+
+.caja_tiempo1,
+.caja_tiempo2 img {
+    width: 50px;
+    height: 50px;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 850px;
+    position: absolute;
+    margin-left: 72%;
+    margin-top: -49em;
+    border: 1px solid black;
+    background-color: #272522;
+}
+
+.caja_img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+}
+
+.caja_img img:nth-child(1) {
+    height: 80px;
+    margin-right: 20px;
+}
+
+.caja_img img:nth-child(2) {
+    height: 60px;
+    margin-top: 30px;
+}
+
+.caja_img img:nth-child(3) {
+    height: 80px;
+    margin-left: 20px;
+}
+
+.caja_chat {
+    flex-grow: 1;
+}
+
+.caja_chat h1 {
+    text-align: center;
+    padding: 10px;
+    color: #f2d8b3;
+}
+
+.caja_chat p {
+    padding: 10px;
+    color: #f2d8b3;
+}
+
+.espacio_inf {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #21201d;
+    height: 100px;
+}
+
+.espacio_inf p {
+    color: #f2d8b3;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.caja_chat hr {
+    border-color: black;
+}
+
+.imagenes img {
+    height: 40px;
+    width: 40px;
+    transition: transform 0.2s ease-in-out;
+    margin: 5px;
+}
+
+.imagenes img:hover {
+    transform: translateY(-5px);
+}
+
+.mensaje_victoria {
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 34%;
+    width: 30%;
+    height: 30%;
+    background: linear-gradient(to left, #F5DEB3, #D2B48C, #8B4513);
+    padding: 20px;
+    border: 1px solid #000000;
+    text-align: center;
+    animation: wipe-in-up 0.5s;
+}
+
+.mensaje_victoria img {
+    width: 100px;
+    height: 100px;
+    margin-top: 30px;
+    margin-left: 250px;
+}
+
+.ganador {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.guia_piezas {
+    display: none;
+    position: fixed;
+    top: 17%;
+    left: 29%;
+    width: 40%;
+    height: 62%;
+    background: linear-gradient(to left, #F5DEB3, #D2B48C, #8B4513);
+    padding: 20px;
+    border: 1px solid #000000;
+    text-align: center;
+    animation: wipe-in-up 0.5s;
+}
+
+.guia_piezas img {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+}
+
+.imagenesMov img {
+    width: 250px;
+    height: 250px;
+}
+
+.pieza_ {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 40px;
+}
+
+.boton img {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin-left: 42%;
+    margin-top: -1%;
+}
+
+@keyframes wipe-in-up {
+    from {
+        clip-path: inset(100% 0 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+[transition-style="in:wipe:up"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-up both;
+}
+
+@keyframes wipe-in-right {
+    from {
+        clip-path: inset(0 100% 0 0);
+    }
+
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+[transition-style="in:wipe:right"] {
+    animation: 2.5s cubic-bezier(.25, 1, .30, 1) wipe-in-right both;
+}
